@@ -23,7 +23,7 @@ Install the MU Editor by running ```sodu apt-get update && sudo apt-get install 
 
 # Sensor & Display Hookups
 
-<img src="https://github.com/hran33/CoffeeAssist/blob/master/Fritzing.jpg">
+<img src="https://github.com/hran33/CoffeeAssist/blob/master/CoffeeAssistFritzing.jpg">
 
 ## LCD Screen
 
@@ -48,52 +48,22 @@ Install the MU Editor by running ```sodu apt-get update && sudo apt-get install 
 The completed program will preform the following functions: sense the weight on the scale and display the value on the lcd display, when reaches the pre-set value, timer starts counting diwn, when time's up, sense the weight again, repeat until program ends.
 
 ## Set up the hx711 module
-First, we will set up the hx711 load cell library to read weight (from https://github.com/tatobari/hx711py
-) by doing the following:
-```
-cd /home/pi/
-git clone https://github.com/tatobari/hx711py
-cd hx711
-```
-Next, import the library and set up the load cell to get values by putting the following at the beginning:
-```
-EMULATE_HX711=False
-
-if not EMULATE_HX711:
-    import RPi.GPIO as GPIO
-    from hx711 import HX711
-else:
-    from emulated_hx711 import HX711
-hx = HX711(5, 6)
-hx.set_reading_format("MSB", "MSB")
-hx.set_reference_unit(379)
-hx.reset()
-hx.tare()
-```
+Follow [these instructions](https://github.com/tatobari/hx711py) to assamble the load cell and hx711 amplifier 
+)
 Change the reference unit accordingly to calibrate
+```
+hx.set_reference_unit(379)
+```
 
 ## Set up the LCD Screen
-To enable the LCD screen, follow [these instructions](http://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/), make sure to include the library at the beginning of the code:
-```
-import I2C_LCD_driver
-```
-```
-mylcd = I2C_LCD_driver.lcd()
-```
+To enable the LCD screen, follow [these instructions](http://www.circuitbasics.com/raspberry-pi-i2c-lcd-set-up-and-programming/)
 
-## Set up the micro:bit
+## Set up the microcontroller
+Open the control.py file in MU Editor and flash it to the micro:bit
 
-Set the micro:bit connection by importing:
-```
-import RPi.GPIO as GPIO
-```
-```
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN)
-GPIO.setup(27, GPIO.IN)
-```
 # General Notes
-Button A on the microbit starts the kitchen scale mode with only the weighing funtion, button B starts the brewing mode. Put the coffee ware on the scale before starting the scale to avoid recuncant value readings. Change the time and weight for costumized routine. 
+
+Button A on the microbit starts the kitchen scale mode with only the weighing funtion, button B starts the brewing mode. Put the coffee ware on the scale before starting the scale to avoid recuncant value readings. Change the timer value and weight for costumized routine. 
 
 ## License
 
