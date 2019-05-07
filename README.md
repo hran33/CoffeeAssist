@@ -23,6 +23,8 @@ Install the MU Editor by running ```sodu apt-get update && sudo apt-get install 
 
 # Sensor & Display Hookups
 
+<img src="https://github.com/hran33/CoffeeAssist/blob/master/Fritzing.jpg">
+
 ## LCD Screen
 
 * GND to Raspberry Pi pin 9 (GND)
