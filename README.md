@@ -25,19 +25,21 @@ Install the MU Editor by running ```sodu apt-get update && sudo apt-get install 
 
 ## LCD Screen
 
-* VCC to one of the Pi's 5V pins
-* GND to one of the Pi's ground pins
-* SDA to the Pi's GPIO2 pin
-* SCL to the Pi's GPIO3 pin
+* GND to Raspberry Pi pin 9 (GND)
+* VCC to Raspberry Pi pin 2 (5V)
+* SDA to Raspberry Pi pin 3 (GPIO2)
+* SCL to Raspberry Pi pin 5 (GPIO3)
 
 ## HX711
 
 * VCC to Raspberry Pi Pin 2 (5V)
 * GND to Raspberry Pi Pin 6 (GND)
-* DT to Raspberry Pi Pin 29 (GPIO 5)
-* SCK to Raspberry Pi Pin 31 (GPIO 6)
+* DT to Raspberry Pi pin 29 (GPIO5) 
+* SCK to Raspberry Pi Pin 31 (GPIO6)
 
 ## Micro:bit
+* pin 0 to Raspberry Pi pin 11 (GPIO17)
+* pin 1 to Raspberry Pi pin 13 (GPIO27)
 
 # Setup
 
